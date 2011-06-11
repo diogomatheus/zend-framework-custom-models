@@ -1,0 +1,12 @@
+<h3>Detalhes do pedido</h3>
+<p><?php echo $this->pedido->getUser()->name; ?> - <?php echo $this->pedido->create_date; ?></p>
+
+<h4>Imprimindo de um Rowset acessando a classe Row_Order</h4>
+<?php foreach($this->pedido->getItens() as $item): ?>
+<p>Produto: <?php echo $item->name; ?> - Quantidade: <?php echo $item->amount; ?></p>
+<?php endforeach; ?>
+
+<h4>Imprimindo de um Array acessando a classe Rowset_OrderItem</h4>
+<?php foreach($this->pedido->getItens()->getAsArray() as $item): ?>
+<p>Produto: <?php echo $item['name']; ?> - Quantidade: <?php echo $item['amount']; ?></p>
+<?php endforeach; ?>
